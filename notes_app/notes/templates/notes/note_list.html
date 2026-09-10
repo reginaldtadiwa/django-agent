@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Notes</title>
+</head>
+<body>
+    <h1>Notes</h1>
+
+    <form method="get" action="">
+        <input type="search" name="q" value="{{ q }}" placeholder="Search notes by title" aria-label="Search notes">
+        <button type="submit">Search</button>
+    </form>
+
+    {% if notes %}
+        <ul>
+        {% for note in notes %}
+            <li>{{ note.title }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>
+        {% if q %}
+            No notes match your search.
+        {% else %}
+            No notes yet.
+        {% endif %}
+        </p>
+    {% endif %}
+</body>
+</html>
